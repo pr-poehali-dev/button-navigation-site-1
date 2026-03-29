@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Cormorant:ital,wght@0,400;0,600;1,400&display=swap");
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -98,4 +100,301 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* ===== COMMUNITY SITE STYLES ===== */
+
+.community-home,
+.inner-page {
+  position: relative;
+  min-height: 100vh;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 180px;
+  opacity: 0.6;
+}
+
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* HERO */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(-24px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.hero-content.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.community-label {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.community-title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.title-line {
+  display: block;
+}
+
+.accent-stroke {
+  color: transparent;
+  -webkit-text-stroke: 2px #e8ff3a;
+}
+
+.community-desc {
+  font-family: "Cormorant", serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 1.2rem;
+  letter-spacing: 0.1em;
+}
+
+/* SECTIONS GRID */
+.sections-grid {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 520px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s ease 0.2s,
+    transform 0.5s ease 0.2s;
+}
+
+.sections-grid.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* SECTION BUTTONS */
+.section-btn {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.4rem 2rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
+  opacity: 0;
+  animation: btnReveal 0.5s ease forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes btnReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.section-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--btn-color);
+  transform: scaleY(0);
+  transition: transform 0.25s ease;
+  transform-origin: bottom;
+}
+
+.section-btn.is-hovered {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--btn-color);
+  transform: translateX(6px);
+}
+
+.section-btn.is-hovered::before {
+  transform: scaleY(1);
+}
+
+.btn-num {
+  font-family: "Cormorant", serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--btn-color);
+  letter-spacing: 0.1em;
+  min-width: 28px;
+  opacity: 0.8;
+}
+
+.btn-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.btn-title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  color: #fff;
+  line-height: 1;
+}
+
+.btn-subtitle {
+  font-family: "Cormorant", serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.05em;
+}
+
+.btn-arrow {
+  font-size: 1.2rem;
+  color: var(--btn-color);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.section-btn.is-hovered .btn-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== INNER PAGES ===== */
+.inner-page {
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 2.5rem;
+}
+
+.inner-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.inner-content.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-btn {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.35);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  margin-bottom: 2.5rem;
+  transition: color 0.2s ease;
+  display: block;
+}
+
+.back-btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.page-num-tag {
+  font-family: "Cormorant", serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--tag-color);
+  margin-bottom: 0.6rem;
+  opacity: 0.7;
+}
+
+.inner-title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--tag-color);
+  margin-bottom: 2.5rem;
+}
+
+.content-block {
+  border-left: 2px solid rgba(255, 255, 255, 0.08);
+  padding-left: 1.5rem;
+}
+
+.content-placeholder {
+  font-family: "Cormorant", serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.3);
+  font-style: italic;
 }
