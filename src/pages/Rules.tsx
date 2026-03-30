@@ -17,8 +17,8 @@ export default function Rules() {
         <button className="back-btn" onClick={() => navigate("/")}>
           ← НАЗАД
         </button>
-        <div className="page-num-tag" style={{ "--tag-color": "#E8FF3A" } as React.CSSProperties}>01</div>
-        <h2 className="inner-title" style={{ "--tag-color": "#E8FF3A" } as React.CSSProperties}>ПРАВИЛА</h2>
+        <div className="page-num-tag" style={{ "--tag-color": "#C2783E" } as React.CSSProperties}>01</div>
+        <h2 className="inner-title" style={{ "--tag-color": "#C2783E" } as React.CSSProperties}>ПРАВИЛА</h2>
         <div className="content-block">
           <p className="content-placeholder">Здесь появятся правила сообщества. Напишите мне, что нужно добавить — и я заполню этот раздел.</p>
         </div>

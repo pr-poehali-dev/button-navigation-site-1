@@ -17,8 +17,8 @@ export default function Norm() {
         <button className="back-btn" onClick={() => navigate("/")}>
           ← НАЗАД
         </button>
-        <div className="page-num-tag" style={{ "--tag-color": "#3AFFCB" } as React.CSSProperties}>03</div>
-        <h2 className="inner-title" style={{ "--tag-color": "#3AFFCB" } as React.CSSProperties}>НОРМА</h2>
+        <div className="page-num-tag" style={{ "--tag-color": "#D97706" } as React.CSSProperties}>03</div>
+        <h2 className="inner-title" style={{ "--tag-color": "#D97706" } as React.CSSProperties}>НОРМА</h2>
         <div className="content-block">
           <p className="content-placeholder">Здесь появятся стандарты поведения. Напишите мне, что нужно добавить — и я заполню этот раздел.</p>
         </div>

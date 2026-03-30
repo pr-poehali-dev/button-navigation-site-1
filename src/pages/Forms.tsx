@@ -17,8 +17,8 @@ export default function Forms() {
         <button className="back-btn" onClick={() => navigate("/")}>
           ← НАЗАД
         </button>
-        <div className="page-num-tag" style={{ "--tag-color": "#B03AFF" } as React.CSSProperties}>04</div>
-        <h2 className="inner-title" style={{ "--tag-color": "#B03AFF" } as React.CSSProperties}>АНКЕТЫ</h2>
+        <div className="page-num-tag" style={{ "--tag-color": "#7C6A9E" } as React.CSSProperties}>04</div>
+        <h2 className="inner-title" style={{ "--tag-color": "#7C6A9E" } as React.CSSProperties}>АНКЕТЫ</h2>
         <div className="content-block">
           <p className="content-placeholder">Здесь появятся анкеты для вступления. Напишите мне, что нужно добавить — и я заполню этот раздел.</p>
         </div>

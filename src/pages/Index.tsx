@@ -8,7 +8,7 @@ const sections = [
     subtitle: "Основа всего",
     path: "/rules",
     num: "01",
-    color: "#E8FF3A",
+    color: "#C2783E",
     clip: "polygon(0 0, 100% 0, 100% 85%, 88% 100%, 0 100%)",
   },
   {
@@ -17,16 +17,16 @@ const sections = [
     subtitle: "Что недопустимо",
     path: "/bans",
     num: "02",
-    color: "#FF3A3A",
+    color: "#B45454",
     clip: "polygon(12% 0, 100% 0, 100% 100%, 0 100%, 0 15%)",
   },
   {
     id: "norm",
     title: "НОРМА",
-    subtitle: "Стандарты поведения",
+    subtitle: "Минимум постов для участия",
     path: "/norm",
     num: "03",
-    color: "#3AFFCB",
+    color: "#D97706",
     clip: "polygon(0 0, 88% 0, 100% 15%, 100% 100%, 0 100%)",
   },
   {
@@ -35,7 +35,7 @@ const sections = [
     subtitle: "Вступить в сообщество",
     path: "/forms",
     num: "04",
-    color: "#B03AFF",
+    color: "#7C6A9E",
     clip: "polygon(0 0, 100% 0, 100% 100%, 12% 100%, 0 85%)",
   },
 ];
@@ -62,6 +62,7 @@ export default function Index() {
           <span className="title-line">ВАТЬ</span>
         </h1>
         <p className="community-desc">Выберите раздел</p>
+        <div className="cleanup-badge">🕛 Чистка 1 числа в 12:00 по МСК</div>
       </div>
 
       <div className={`sections-grid ${visible ? "is-visible" : ""}`}>
